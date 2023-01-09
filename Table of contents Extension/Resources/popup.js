@@ -20,6 +20,7 @@ async function refreshHeadingList() {
 	
 	if (hasHeadings) {
 		// List headings
+		let levelMappings = [];
 		for (let headingIndex = 0; headingIndex < headingInfos.length; headingIndex++) {
 			let headingInfo = headingInfos[headingIndex];
 			
@@ -27,8 +28,37 @@ async function refreshHeadingList() {
 			selectElement.appendChild(optionElement);
 			
 			optionElement.dataset.headingIndex = headingIndex;
-			const indentedHeadingText = "   ".repeat(headingInfo.level - 1) + headingInfo.innerText;
-			optionElement.innerText = indentedHeadingText;
+			
+			// Remap levels to avoid level gaps
+			// E.g. if a h1 directly contains a h4, then the h4 becomes a h2
+			// // Pop mappings that are to deep
+			let activeLevelMapping = levelMappings[levelMappings.length - 1];
+			while (activeLevelMapping && activeLevelMapping.actual > headingInfo.level) {
+				levelMappings.pop();
+				activeLevelMapping = levelMappings[levelMappings.length - 1]
+			}
+			
+			// // Add mapping if necessary
+			if (!activeLevelMapping) {
+				// No mapping? Map to top-level
+				levelMappings.push({
+					actual: headingInfo.level,
+					mapped: 1
+				});
+			} else if (activeLevelMapping.actual < headingInfo.level) {
+				// Parent mapping? Nest
+				levelMappings.push({
+					actual: headingInfo.level,
+					mapped: activeLevelMapping.mapped + 1
+				});
+			}
+			
+			const currentLevelMapping = levelMappings[levelMappings.length - 1];
+			
+			// Set text
+			const levelIndentation = "   ".repeat(currentLevelMapping.mapped - 1);
+			const formattedHeadingText = levelIndentation + headingInfo.innerText.trim();
+			optionElement.innerText = formattedHeadingText;
 		}
 	} else {
 		// Show empty state

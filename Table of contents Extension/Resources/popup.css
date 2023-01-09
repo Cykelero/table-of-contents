@@ -19,6 +19,8 @@ select {
 	
 	font-size: 14px;
 	color: rgb(45, 45, 45);
+	
+	outline: none;
 }
 
 option {

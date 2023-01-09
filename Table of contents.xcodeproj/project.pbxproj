@@ -20,7 +20,6 @@
 		A719E184296C6D2600C965EF /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = A719E183296C6D2600C965EF /* _locales */; };
 		A719E186296C6D2600C965EF /* images in Resources */ = {isa = PBXBuildFile; fileRef = A719E185296C6D2600C965EF /* images */; };
 		A719E188296C6D2600C965EF /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = A719E187296C6D2600C965EF /* manifest.json */; };
-		A719E18A296C6D2600C965EF /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = A719E189296C6D2600C965EF /* background.js */; };
 		A719E18C296C6D2600C965EF /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = A719E18B296C6D2600C965EF /* content.js */; };
 		A719E18E296C6D2600C965EF /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = A719E18D296C6D2600C965EF /* popup.html */; };
 		A719E190296C6D2600C965EF /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A719E18F296C6D2600C965EF /* popup.css */; };
@@ -68,7 +67,6 @@
 		A719E183296C6D2600C965EF /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		A719E185296C6D2600C965EF /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		A719E187296C6D2600C965EF /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
-		A719E189296C6D2600C965EF /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
 		A719E18B296C6D2600C965EF /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 		A719E18D296C6D2600C965EF /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		A719E18F296C6D2600C965EF /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				A719E183296C6D2600C965EF /* _locales */,
 				A719E185296C6D2600C965EF /* images */,
 				A719E187296C6D2600C965EF /* manifest.json */,
-				A719E189296C6D2600C965EF /* background.js */,
 				A719E18B296C6D2600C965EF /* content.js */,
 				A719E18D296C6D2600C965EF /* popup.html */,
 				A719E18F296C6D2600C965EF /* popup.css */,
@@ -258,7 +255,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A719E18A296C6D2600C965EF /* background.js in Resources */,
 				A719E190296C6D2600C965EF /* popup.css in Resources */,
 				A719E18E296C6D2600C965EF /* popup.html in Resources */,
 				A719E186296C6D2600C965EF /* images in Resources */,

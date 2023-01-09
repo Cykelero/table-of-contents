@@ -8,7 +8,7 @@ async function refreshHeadingList() {
 	const selectElement = document.createElement("select");
 	body.appendChild(selectElement);
 	
-	selectElement.size = Math.min(22, hasEnoughHeadings ? headingInfos.length : Number.POSITIVE_INFINITY);
+	selectElement.size = Math.min(22, headingInfos.length);
 	selectElement.addEventListener("change", () => {
 		const selectedOption = selectElement.selectedOptions[0];
 		
@@ -62,6 +62,7 @@ async function refreshHeadingList() {
 		}
 	} else {
 		// Show empty state
+		selectElement.size = 5;
 		selectElement.style.pointerEvents = "none";
 		
 		// // Pad for vertical alignement

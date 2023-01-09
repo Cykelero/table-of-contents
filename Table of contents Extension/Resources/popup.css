@@ -3,13 +3,30 @@
 }
 
 body {
-    width: 100px;
-    padding: 10px;
+	padding: 10px;
+	
+    width: 360px;
 
     font-family: system-ui;
     text-align: center;
 }
 
+select {
+	width: 100%;
+	
+	background: none;
+	border: none;
+	
+	font-size: 14px;
+	color: rgb(45, 45, 45);
+}
+
+option {
+	white-space: normal;
+}
+
 @media (prefers-color-scheme: dark) {
-    /* Dark Mode styles go here. */
+	select {
+		color: white;
+	}
 }

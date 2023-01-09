@@ -56,7 +56,7 @@ async function refreshHeadingList() {
 			const currentLevelMapping = levelMappings[levelMappings.length - 1];
 			
 			// Set text
-			const levelIndentation = "   ".repeat(currentLevelMapping.mapped - 1);
+			const levelIndentation = "    ".repeat(currentLevelMapping.mapped - 1);
 			const formattedHeadingText = levelIndentation + headingInfo.innerText;
 			optionElement.innerText = formattedHeadingText;
 		}

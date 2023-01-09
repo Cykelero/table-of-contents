@@ -1,6 +1,6 @@
 async function refreshHeadingList() {
 	const headingInfos = await sendMessageToCurrentTab({ action: "getHeadingInfos" });
-	const hasHeadings = headingInfos.length > 0;
+	const hasEnoughHeadings = headingInfos.length > 1;
 	
 	// Render
 	body.innerHTML = "";
@@ -8,7 +8,7 @@ async function refreshHeadingList() {
 	const selectElement = document.createElement("select");
 	body.appendChild(selectElement);
 	
-	selectElement.size = Math.min(22, hasHeadings ? headingInfos.length : Number.POSITIVE_INFINITY);
+	selectElement.size = Math.min(22, hasEnoughHeadings ? headingInfos.length : Number.POSITIVE_INFINITY);
 	selectElement.addEventListener("change", () => {
 		const selectedOption = selectElement.selectedOptions[0];
 		
@@ -18,7 +18,7 @@ async function refreshHeadingList() {
 		}
 	});
 	
-	if (hasHeadings) {
+	if (hasEnoughHeadings) {
 		// List headings
 		let levelMappings = [];
 		for (let headingIndex = 0; headingIndex < headingInfos.length; headingIndex++) {

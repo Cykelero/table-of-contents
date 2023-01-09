@@ -19,7 +19,27 @@ function getHeadings() {
 	return (
 		Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6, h7, h8, h9, h10"))
 		.filter(heading => heading.innerText.trim() !== "")
-		.filter(heading => !heading.closest("aside, .sidebar, nav"))
+		.filter(heading => !heading.closest("aside, nav, .sidebar, #sidebar, footer, .footer, #footer"))
+		.filter(heading => heading.offsetParent !== null) // rules out both invisible element, and “position: fixed” elements
+		.filter(heading => {
+			// Check that element is contained within page frame, and not minuscule
+			const boundingRect = heading.getBoundingClientRect();
+			const documentBoundingRect = {
+				left: boundingRect.left + scrollX,
+				top: boundingRect.top + scrollY,
+				right: boundingRect.right + scrollX,
+				bottom: boundingRect.bottom + scrollY,
+				width: boundingRect.width,
+				height: boundingRect.height
+			};
+			console.log(heading.innerText, documentBoundingRect);
+			return (
+				documentBoundingRect.right > 0
+				&& documentBoundingRect.bottom > 0
+				&& documentBoundingRect.width > 4
+				&& documentBoundingRect.height > 4
+			)
+		})
 	);
 }
 

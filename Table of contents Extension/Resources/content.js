@@ -64,7 +64,7 @@ function getHeadings() {
 	return (
 		Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6, h7, h8, h9, h10"))
 		.filter(heading => heading.innerText.trim() !== "")
-		.filter(heading => !heading.closest("aside, nav, .sidebar, #sidebar, footer, .footer, #footer"))
+		.filter(heading => !heading.closest(":not(body):is(aside, nav, .sidebar, #sidebar, footer, .footer, #footer)"))
 		.filter(heading => heading.offsetParent !== null) // rules out both invisible element, and “position: fixed” elements
 		.filter(heading => {
 			// Check that element is contained within page frame, and not minuscule

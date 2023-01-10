@@ -88,11 +88,7 @@ async function refreshHeadingList() {
 		document.body.appendChild(messageContainerElement);
 		
 		messageContainerElement.className = "messageContainer";
-		
-		let messageElement = document.createElement("span");
-		messageContainerElement.appendChild(messageElement);
-		
-		messageElement.innerText = "No heading in document";
+		messageContainerElement.innerText = "No heading in document";
 	}
 }
 

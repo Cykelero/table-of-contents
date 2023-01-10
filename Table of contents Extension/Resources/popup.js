@@ -30,15 +30,16 @@ async function refreshHeadingList() {
 	// Render
 	document.body.innerHTML = "";
 	
-	const selectElement = document.createElement("select");
-	document.body.appendChild(selectElement);
-	selectElement.focus();
-	
-	selectElement.size = Math.min(22, headingInfos.length);
-	selectElement.addEventListener("change", userDidChangeHeadingSelection);
-	
 	if (hasEnoughHeadings) {
-		// List headings
+		// Create <select>
+		const selectElement = document.createElement("select");
+		document.body.appendChild(selectElement);
+		selectElement.focus();
+		
+		selectElement.size = Math.min(22, headingInfos.length);
+		selectElement.addEventListener("change", userDidChangeHeadingSelection);
+		
+		// Add heading <option> elements
 		let levelMappings = [];
 		for (let headingIndex = 0; headingIndex < headingInfos.length; headingIndex++) {
 			let headingInfo = headingInfos[headingIndex];
@@ -83,22 +84,15 @@ async function refreshHeadingList() {
 		// Select current heading
 		selectHeadingAtIndex(headingData.currentHeadingIndex);
 	} else {
-		// Show empty state
-		selectElement.size = 5;
-		selectElement.style.pointerEvents = "none";
+		let messageContainerElement = document.createElement("div");
+		document.body.appendChild(messageContainerElement);
 		
-		// // Pad for vertical alignement
-		const topPaddingAmount = Math.ceil(selectElement.size / 2) - 1;
-		for (let i = 0; i < topPaddingAmount; i++) {
-			selectElement.appendChild(document.createElement("option"));
-		}
+		messageContainerElement.className = "messageContainer";
 		
-		// // Add message option
-		const optionElement = document.createElement("option");
-		selectElement.appendChild(optionElement);
+		let messageElement = document.createElement("span");
+		messageContainerElement.appendChild(messageElement);
 		
-		optionElement.innerText = "No heading in document";
-		optionElement.style.textAlign = "center";
+		messageElement.innerText = "No heading in document";
 	}
 }
 
@@ -107,7 +101,10 @@ function selectHeadingAtIndex(headingIndex) {
 }
 
 function userDidChangeHeadingSelection() {
-	const selectedOption = document.querySelector("select").selectedOptions[0];
+	const selectElement = document.querySelector("select");
+	if (!selectElement) return;
+	
+	const selectedOption = selectElement.selectedOptions[0];
 	
 	if (selectedOption) {
 		lastSelectionChangeTime = new Date().getTime();
@@ -145,6 +142,7 @@ addEventListener("keydown", function(event) {
 	const DOWN_ARROW = 40;
 	
 	const selectElement = document.querySelector("select");
+	if (!selectElement) return;
 	
 	if (event.keyCode === UP_ARROW && event.altKey) {
 		selectElement.selectedIndex = 0;

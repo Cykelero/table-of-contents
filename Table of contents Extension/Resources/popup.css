@@ -8,7 +8,7 @@ body {
     width: 360px;
 
     font-family: system-ui;
-    text-align: center;
+	color: #2d2d2d;
 }
 
 select {
@@ -18,13 +18,20 @@ select {
 	border: none;
 	
 	font-size: 14px;
-	color: rgb(45, 45, 45);
+	color: inherit;
 	
 	outline: none;
 }
 
 option {
 	white-space: normal;
+}
+
+.messageContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
 }
 
 @media (prefers-color-scheme: dark) {

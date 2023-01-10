@@ -31,5 +31,13 @@
         }
     },
 
-    "permissions": [ ]
+    "permissions": [ ],
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+G",
+				"mac": "MacCtrl+G"
+			}
+		}
+	}
 }

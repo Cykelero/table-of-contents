@@ -35,16 +35,7 @@ async function refreshHeadingList() {
 	selectElement.focus();
 	
 	selectElement.size = Math.min(22, headingInfos.length);
-	selectElement.addEventListener("change", () => {
-		const selectedOption = selectElement.selectedOptions[0];
-		
-		if (selectedOption) {
-			lastSelectionChangeTime = new Date().getTime();
-			
-			const selectedHeadingIndex = selectedOption.dataset.headingIndex;
-			sendMessageToCurrentTab({ action: "revealHeading", headingIndex: selectedHeadingIndex });
-		}
-	});
+	selectElement.addEventListener("change", userDidChangeHeadingSelection);
 	
 	if (hasEnoughHeadings) {
 		// List headings
@@ -115,6 +106,20 @@ function selectHeadingAtIndex(headingIndex) {
 	document.querySelector("select").selectedIndex = headingIndex;
 }
 
+function userDidChangeHeadingSelection() {
+	const selectedOption = document.querySelector("select").selectedOptions[0];
+	
+	if (selectedOption) {
+		lastSelectionChangeTime = new Date().getTime();
+		
+		const selectedHeadingIndex = selectedOption.dataset.headingIndex;
+		sendMessageToCurrentTab({
+			action: "revealHeading",
+			headingIndex: selectedHeadingIndex
+		});
+	}
+}
+
 // Initialize
 const body = document.body;
 let lastSelectionChangeTime = 0;
@@ -135,3 +140,18 @@ if (document.visibilityState === "visible") {
 	refreshHeadingList();
 	startStreamingCurrentHeadingIndex();
 }
+
+addEventListener("keydown", function(event) {
+	const UP_ARROW = 38;
+	const DOWN_ARROW = 40;
+	
+	const selectElement = document.querySelector("select");
+	
+	if (event.keyCode === UP_ARROW && event.altKey) {
+		selectElement.selectedIndex = 0;
+		userDidChangeHeadingSelection();
+	} else if (event.keyCode === DOWN_ARROW && event.altKey) {
+		selectElement.selectedIndex = selectElement.options.length - 1;
+		userDidChangeHeadingSelection();
+	}
+});

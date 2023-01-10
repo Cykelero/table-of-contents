@@ -8,14 +8,8 @@ const knownMessages = {
 	},
 	revealHeading(request, sender, sendResponse) {
 		const headingToReveal = getHeadings()[request.headingIndex];
-		
-		console.log(headingToReveal);
-
-		headingToReveal.scrollIntoView({
-			block: "start",
-			inline: "nearest"
-		});
-		scrollBy(0, -HEADING_TOP_OFFSET);
+		const headingToRevealRect = headingToReveal.getBoundingClientRect();
+		scrollBy(0, headingToRevealRect.top - HEADING_TOP_OFFSET);
 	},
 	startStreamingCurrentHeadingIndex(request, sender, sendResponse) {
 		startStreamingCurrentHeadingIndex();

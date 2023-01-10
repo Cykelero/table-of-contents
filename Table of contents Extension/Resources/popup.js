@@ -1,5 +1,30 @@
+// Functions
+// // Communication
+const knownMessages = {
+	setCurrentHeadingIndex(request, sender, sendResponse) {
+		// If user didn't choose a heading just now, update selection
+		if (new Date().getTime() > lastSelectionChangeTime + 500) {
+			selectHeadingAtIndex(request.value);
+		}
+		
+		// Acknowledge
+		sendResponse({continueStreaming: true});
+	}
+}
+
+function startStreamingCurrentHeadingIndex() {
+	sendMessageToCurrentTab({action: "startStreamingCurrentHeadingIndex"});
+}
+
+async function sendMessageToCurrentTab(request) {
+	const currentTab = await browser.tabs.getCurrent();
+	return await browser.tabs.sendMessage(currentTab.id, request);
+}
+
+// // Render
 async function refreshHeadingList() {
-	const headingInfos = await sendMessageToCurrentTab({ action: "getHeadingInfos" });
+	const headingData = await sendMessageToCurrentTab({ action: "getHeadingData" });
+	const headingInfos = headingData.headingInfos;
 	const hasEnoughHeadings = headingInfos.length > 1;
 	
 	// Render
@@ -7,12 +32,15 @@ async function refreshHeadingList() {
 	
 	const selectElement = document.createElement("select");
 	body.appendChild(selectElement);
+	selectElement.focus();
 	
 	selectElement.size = Math.min(22, headingInfos.length);
 	selectElement.addEventListener("change", () => {
 		const selectedOption = selectElement.selectedOptions[0];
 		
 		if (selectedOption) {
+			lastSelectionChangeTime = new Date().getTime();
+			
 			const selectedHeadingIndex = selectedOption.dataset.headingIndex;
 			sendMessageToCurrentTab({ action: "revealHeading", headingIndex: selectedHeadingIndex });
 		}
@@ -60,6 +88,9 @@ async function refreshHeadingList() {
 			const formattedHeadingText = levelIndentation + headingInfo.innerText;
 			optionElement.innerText = formattedHeadingText;
 		}
+		
+		// Select current heading
+		selectHeadingAtIndex(headingData.currentHeadingIndex);
 	} else {
 		// Show empty state
 		selectElement.size = 5;
@@ -80,20 +111,27 @@ async function refreshHeadingList() {
 	}
 }
 
-async function sendMessageToCurrentTab(request) {
-	const currentTab = await browser.tabs.getCurrent();
-	return await browser.tabs.sendMessage(currentTab.id, request);
+function selectHeadingAtIndex(headingIndex) {
+	document.querySelector("select").selectedIndex = headingIndex;
 }
 
 // Initialize
 const body = document.body;
+let lastSelectionChangeTime = 0;
 
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+	if (request.action) {
+		knownMessages[request.action](request, sender, sendResponse);
+	}
+});
 addEventListener("visibilitychange", function() {
 	if (document.visibilityState !== "visible") return;
 	
 	refreshHeadingList();
+	startStreamingCurrentHeadingIndex();
 });
 
 if (document.visibilityState === "visible") {
 	refreshHeadingList();
+	startStreamingCurrentHeadingIndex();
 }

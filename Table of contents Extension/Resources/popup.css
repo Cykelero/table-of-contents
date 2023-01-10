@@ -5,15 +5,13 @@
 body {
 	padding: 10px;
 	
-    width: 360px;
+    width: auto;
 
     font-family: system-ui;
 	color: #2d2d2d;
 }
 
 select {
-	width: 100%;
-	
 	background: none;
 	border: none;
 	
@@ -31,8 +29,8 @@ option {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 360px;
-	height: 70px;
+	width: 260px;
+	height: 40px;
 }
 
 @media (prefers-color-scheme: dark) {

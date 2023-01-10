@@ -36,7 +36,7 @@ async function refreshHeadingList() {
 		document.body.appendChild(selectElement);
 		selectElement.focus();
 		
-		selectElement.size = Math.min(22, headingInfos.length);
+		selectElement.size = headingInfos.length;
 		selectElement.addEventListener("change", userDidChangeHeadingSelection);
 		
 		// Add heading <option> elements
@@ -94,6 +94,24 @@ async function refreshHeadingList() {
 
 function selectHeadingAtIndex(headingIndex) {
 	document.querySelector("select").selectedIndex = headingIndex;
+	revealHeadingAtIndex(headingIndex);
+}
+
+function revealHeadingAtIndex(headingIndex) {
+	const verticalPadding = 10;
+	
+	const selectElement = document.querySelector("select");
+	if (!selectElement) return;
+	
+	const selectedOption = selectElement.options[headingIndex];
+	const selectedOptionRect = selectedOption.getBoundingClientRect();
+	const viewportHeight = document.documentElement.clientHeight;
+	
+	if (selectedOptionRect.top < verticalPadding) {
+		scrollBy(0, selectedOptionRect.top - verticalPadding);
+	} else if (selectedOptionRect.bottom > viewportHeight - verticalPadding) {
+		scrollBy(0, selectedOptionRect.bottom - viewportHeight + verticalPadding);
+	}
 }
 
 function userDidChangeHeadingSelection() {
@@ -105,6 +123,10 @@ function userDidChangeHeadingSelection() {
 	if (selectedOption) {
 		lastSelectionChangeTime = new Date().getTime();
 		
+		// Reveal heading in popup
+		revealHeadingAtIndex(selectElement.selectedIndex);
+		
+		// Reveal heading in page
 		const selectedHeadingIndex = selectedOption.dataset.headingIndex;
 		sendMessageToCurrentTab({
 			action: "revealHeading",

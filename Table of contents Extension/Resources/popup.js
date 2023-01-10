@@ -28,10 +28,10 @@ async function refreshHeadingList() {
 	const hasEnoughHeadings = headingInfos.length > 1;
 	
 	// Render
-	body.innerHTML = "";
+	document.body.innerHTML = "";
 	
 	const selectElement = document.createElement("select");
-	body.appendChild(selectElement);
+	document.body.appendChild(selectElement);
 	selectElement.focus();
 	
 	selectElement.size = Math.min(22, headingInfos.length);
@@ -121,7 +121,6 @@ function userDidChangeHeadingSelection() {
 }
 
 // Initialize
-const body = document.body;
 let lastSelectionChangeTime = 0;
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {

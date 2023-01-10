@@ -154,3 +154,9 @@ addEventListener("keydown", function(event) {
 		userDidChangeHeadingSelection();
 	}
 });
+
+addEventListener("mousemove", function(event) {
+	if (event.buttons > 0) {
+		userDidChangeHeadingSelection();
+	}
+});

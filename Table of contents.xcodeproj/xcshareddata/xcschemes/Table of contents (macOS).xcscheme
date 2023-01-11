@@ -23,9 +23,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A719E15E296C6D2400C965EF"
+               BlueprintIdentifier = "A74CBC34296EF72B0020FB0C"
                BuildableName = "Table of contents.app"
-               BlueprintName = "Table of contents"
+               BlueprintName = "Table of contents (macOS)"
                ReferencedContainer = "container:Table of contents.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -53,9 +53,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A719E15E296C6D2400C965EF"
+            BlueprintIdentifier = "A74CBC34296EF72B0020FB0C"
             BuildableName = "Table of contents.app"
-            BlueprintName = "Table of contents"
+            BlueprintName = "Table of contents (macOS)"
             ReferencedContainer = "container:Table of contents.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,9 +70,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A719E15E296C6D2400C965EF"
+            BlueprintIdentifier = "A74CBC34296EF72B0020FB0C"
             BuildableName = "Table of contents.app"
-            BlueprintName = "Table of contents"
+            BlueprintName = "Table of contents (macOS)"
             ReferencedContainer = "container:Table of contents.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

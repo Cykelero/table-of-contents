@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Table of contents
+//  macOS (App)
 //
-//  Created by Nathan Manceaux-Panot on 2023-01-09.
+//  Created by Nathan Manceaux-Panot on 2023-01-11.
 //
 
 import Cocoa

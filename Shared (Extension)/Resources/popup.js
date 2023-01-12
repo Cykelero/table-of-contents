@@ -9,6 +9,11 @@ const knownMessages = {
 		
 		// Acknowledge
 		sendResponse({continueStreaming: true});
+	},
+	tabDidLoad: async function(request, sender, sendResponse) {
+		if (sender.tab === await browser.tabs.getCurrent()) {
+			refreshHeadingList();
+		}
 	}
 }
 

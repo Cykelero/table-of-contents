@@ -34,7 +34,7 @@ option {
 }
 
 @media (prefers-color-scheme: dark) {
-	select {
+	body {
 		color: white;
 	}
 }

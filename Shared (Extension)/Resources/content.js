@@ -139,7 +139,7 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	}
 });
 
-addEventListener("load", function() {
+addEventListener("load", () => {
 	browser.runtime.sendMessage({
 		action: "tabDidLoad"
 	});

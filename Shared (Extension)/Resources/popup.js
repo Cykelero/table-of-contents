@@ -44,6 +44,28 @@ async function refreshHeadingList() {
 		selectElement.size = headingInfos.length;
 		selectElement.addEventListener("change", userDidChangeHeadingSelection);
 		
+		selectElement.addEventListener("mousemove", event => {
+			if (event.buttons > 0) {
+				userDidChangeHeadingSelection();
+			}
+		});
+		
+		selectElement.addEventListener("keydown", event => {
+			const UP_ARROW = 38;
+			const DOWN_ARROW = 40;
+			
+			const selectElement = document.querySelector("select");
+			if (!selectElement) return;
+			
+			if (event.keyCode === UP_ARROW && event.altKey) {
+				selectElement.selectedIndex = 0;
+				userDidChangeHeadingSelection();
+			} else if (event.keyCode === DOWN_ARROW && event.altKey) {
+				selectElement.selectedIndex = selectElement.options.length - 1;
+				userDidChangeHeadingSelection();
+			}
+		});
+		
 		// Add heading <option> elements
 		let levelMappings = [];
 		for (let headingIndex = 0; headingIndex < headingInfos.length; headingIndex++) {
@@ -148,7 +170,8 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		knownMessages[request.action](request, sender, sendResponse);
 	}
 });
-addEventListener("visibilitychange", function() {
+
+addEventListener("visibilitychange", () => {
 	if (document.visibilityState !== "visible") return;
 	
 	refreshHeadingList();
@@ -159,25 +182,3 @@ if (document.visibilityState === "visible") {
 	refreshHeadingList();
 	startStreamingCurrentHeadingIndex();
 }
-
-addEventListener("keydown", function(event) {
-	const UP_ARROW = 38;
-	const DOWN_ARROW = 40;
-	
-	const selectElement = document.querySelector("select");
-	if (!selectElement) return;
-	
-	if (event.keyCode === UP_ARROW && event.altKey) {
-		selectElement.selectedIndex = 0;
-		userDidChangeHeadingSelection();
-	} else if (event.keyCode === DOWN_ARROW && event.altKey) {
-		selectElement.selectedIndex = selectElement.options.length - 1;
-		userDidChangeHeadingSelection();
-	}
-});
-
-addEventListener("mousemove", function(event) {
-	if (event.buttons > 0) {
-		userDidChangeHeadingSelection();
-	}
-});

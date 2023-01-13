@@ -21,11 +21,11 @@ body {
     flex-direction: column;
 
     gap: var(--spacing);
-    margin: 0 calc(var(--spacing) * 2);
+    margin: 0 60px;
     height: 100%;
 
     font: -apple-system-short-body;
-    text-align: center;
+    text-align: left;
 }
 
 body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {

@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "See the list of all page headings, and jump to any with a click.",
+        "message": "See the list of all page headings, and jump to any with a click.\nTo use, click the toolbar button, or press ⌃G.",
         "description": "Description of what the extension does."
     }
 }

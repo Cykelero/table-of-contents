@@ -138,9 +138,3 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		knownMessages[request.action](request, sender, sendResponse);
 	}
 });
-
-addEventListener("load", () => {
-	browser.runtime.sendMessage({
-		action: "tabDidLoad"
-	});
-});

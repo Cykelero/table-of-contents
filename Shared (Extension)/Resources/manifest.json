@@ -14,11 +14,6 @@
         "512": "images/icon-512.png"
     },
 
-    "content_scripts": [{
-        "js": [ "content.js" ],
-		"matches": [ "*://*/*" ]
-    }],
-
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
@@ -31,7 +26,10 @@
         }
     },
 
-    "permissions": [ ],
+	"permissions": [
+		"activeTab",
+		"scripting"
+	],
 	"commands": {
 		"_execute_action": {
 			"suggested_key": {

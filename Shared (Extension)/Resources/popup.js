@@ -17,18 +17,34 @@ const knownMessages = {
 	}
 }
 
-function startStreamingCurrentHeadingIndex() {
-	sendMessageToCurrentTab({action: "startStreamingCurrentHeadingIndex"});
+async function injectContentScript() {
+	// Does nothing if the script has already been injected into this page
+	return await browser.scripting.executeScript({
+		files: ["/content.js"],
+		target: {
+			tabId: (await getActiveTab()).id,
+		},
+		injectImmediately: true
+	});
 }
 
-async function sendMessageToCurrentTab(request) {
-	const currentTab = await browser.tabs.getCurrent();
-	return await browser.tabs.sendMessage(currentTab.id, request);
+function startStreamingCurrentHeadingIndex() {
+	sendMessageToActiveTab({action: "startStreamingCurrentHeadingIndex"});
 }
+
+async function getActiveTab() {
+	const queryResults = await browser.tabs.query({ currentWindow: true, active: true });
+	return queryResults[0];
+}
+
+async function sendMessageToActiveTab(request) {
+	return await browser.tabs.sendMessage((await getActiveTab()).id, request);
+}
+
 
 // // Render
 async function refreshHeadingList() {
-	const headingData = await sendMessageToCurrentTab({ action: "getHeadingData" });
+	const headingData = await sendMessageToActiveTab({ action: "getHeadingData" });
 	const headingInfos = headingData.headingInfos;
 	const hasEnoughHeadings = headingInfos.length > 1;
 	
@@ -155,7 +171,7 @@ function userDidChangeHeadingSelection() {
 		
 		// Reveal heading in page
 		const selectedHeadingIndex = selectedOption.dataset.headingIndex;
-		sendMessageToCurrentTab({
+		sendMessageToActiveTab({
 			action: "revealHeading",
 			headingIndex: selectedHeadingIndex
 		});
@@ -171,14 +187,9 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	}
 });
 
-addEventListener("visibilitychange", () => {
-	if (document.visibilityState !== "visible") return;
+(async function() {
+	await injectContentScript();
 	
 	refreshHeadingList();
 	startStreamingCurrentHeadingIndex();
-});
-
-if (document.visibilityState === "visible") {
-	refreshHeadingList();
-	startStreamingCurrentHeadingIndex();
-}
+})();

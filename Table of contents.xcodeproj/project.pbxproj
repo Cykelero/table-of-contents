@@ -653,7 +653,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug.Extension";
 				PRODUCT_NAME = "Table of contents Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -724,7 +724,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents";
+				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug";
 				PRODUCT_NAME = "Table of contents";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -795,7 +795,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug.Extension";
 				PRODUCT_NAME = "Table of contents Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -864,7 +864,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents";
+				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug";
 				PRODUCT_NAME = "Table of contents";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

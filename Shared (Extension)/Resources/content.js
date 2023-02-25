@@ -35,12 +35,16 @@ async function sendCurrentHeadingIndex() {
 	// Send value
 	const currentHeadingIndex = getHeadingData().currentHeadingIndex;
 	
-	const responsePromise = browser.runtime.sendMessage({
-		action: "setCurrentHeadingIndex",
-		value: currentHeadingIndex
-	});
+	const responsePromise =
+		browser.runtime.sendMessage({
+			action: "setCurrentHeadingIndex",
+			value: currentHeadingIndex
+		})
+		.catch(() => ({continueStreaming: false}));
 	
 	// Decide whether to continue streaming
+	// Safari: promise never resolves
+	// Firefox: promise is rejected
 	const timeoutPromise = new Promise(resolve => {
 		setTimeout(resolve, 300, {continueStreaming: false});
 	});

@@ -17,13 +17,45 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "images/toolbar-icon-16.png",
-            "19": "images/toolbar-icon-19.png",
-            "32": "images/toolbar-icon-32.png",
-            "38": "images/toolbar-icon-38.png",
-            "48": "images/toolbar-icon-48.png",
-            "72": "images/toolbar-icon-72.png"
-        }
+            "16": "images/toolbar-icon-light-16.png",
+            "19": "images/toolbar-icon-light-19.png",
+            "32": "images/toolbar-icon-light-32.png",
+            "38": "images/toolbar-icon-light-38.png",
+            "48": "images/toolbar-icon-light-48.png",
+            "72": "images/toolbar-icon-light-72.png"
+        },
+		"theme_icons": [
+			{
+				"light": "images/toolbar-icon-light-16.png",
+				"dark": "images/toolbar-icon-dark-16.png",
+				"size": 16
+			},
+			{
+				"light": "images/toolbar-icon-light-19.png",
+				"dark": "images/toolbar-icon-dark-19.png",
+				"size": 19
+			},
+			{
+				"light": "images/toolbar-icon-light-32.png",
+				"dark": "images/toolbar-icon-dark-32.png",
+				"size": 32
+			},
+			{
+				"light": "images/toolbar-icon-light-38.png",
+				"dark": "images/toolbar-icon-dark-38.png",
+				"size": 38
+			},
+			{
+				"light": "images/toolbar-icon-light-48.png",
+				"dark": "images/toolbar-icon-dark-48.png",
+				"size": 48
+			},
+			{
+				"light": "images/toolbar-icon-light-72.png",
+				"dark": "images/toolbar-icon-dark-72.png",
+				"size": 72
+			}
+		]
     },
 
 	"permissions": [

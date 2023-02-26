@@ -60,6 +60,11 @@ async function refreshHeadingList() {
 		selectElement.size = headingInfos.length;
 		selectElement.addEventListener("change", userDidChangeHeadingSelection);
 		
+		selectElement.addEventListener("mousedown", () => {
+			// On mousedown, the <select> selection hasn't updated yet
+			setTimeout(userDidChangeHeadingSelection, 0);
+		});
+		
 		selectElement.addEventListener("mousemove", event => {
 			if (event.buttons > 0) {
 				userDidChangeHeadingSelection();

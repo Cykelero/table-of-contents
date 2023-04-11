@@ -102,10 +102,14 @@ function getHeadings() {
 function getHeadingData() {
 	const headings = getHeadings();
 	
-	const headingInfos = headings.map(heading => ({
-		level: Number(heading.tagName.slice(1)),
-		innerText: heading.innerText.trim()
-	}));
+	const headingInfos = headings.map(heading => {
+		const isEditableWikipediaHeading = heading.querySelector(".mw-headline") && heading.querySelector(".mw-editsection");
+		
+		return {
+			level: Number(heading.tagName.slice(1)),
+			innerText: isEditableWikipediaHeading ? heading.querySelector(".mw-headline").innerText.trim() : heading.innerText.trim()
+		};
+	});
 	
 	const currentHeading = headings.reduce((result, current, currentIndex) => {
 		const resultY =

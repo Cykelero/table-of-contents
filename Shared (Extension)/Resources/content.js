@@ -7,6 +7,8 @@ const knownMessages = {
 		sendResponse(getHeadingData());
 	},
 	revealHeading(request, sender, sendResponse) {
+		brieflyForceAutoScrollingBehavior();
+		
 		const headingToReveal = getHeadings()[request.headingIndex];
 		const headingToRevealRect = headingToReveal.getBoundingClientRect();
 		scrollBy(0, headingToRevealRect.top - HEADING_TOP_OFFSET);
@@ -138,8 +140,34 @@ function getHeadingData() {
 	};
 }
 
+// // Other
+function brieflyForceAutoScrollingBehavior() {
+	// Doing this has a performance cost (probably causes a repaint), so debounce the reversal
+	
+	// If first call: record first value, disable smooth scrolling
+	if (revertScrollingBehaviorTimeout === null) {
+		initialHTMLScrollBehavior = document.documentElement.style.scrollBehavior;
+		document.documentElement.style.scrollBehavior = "auto";
+	}
+	
+	// Clear reversal timeout if any
+	if (revertScrollingBehaviorTimeout !== null) {
+		clearTimeout(revertScrollingBehaviorTimeout);
+		revertScrollingBehaviorTimeout = null;
+	}
+	
+	// Set reversal timeout
+	revertScrollingBehaviorTimeout = setTimeout(() => {
+		document.documentElement.style.scrollBehavior = initialHTMLScrollBehavior;
+		revertScrollingBehaviorTimeout = null;
+		initialHTMLScrollBehavior = null;
+	}, 100);
+}
+
 // Initialize
 let isStreamingCurrentHeadingIndex = false;
+let initialHTMLScrollBehavior = null;
+let revertScrollingBehaviorTimeout = null;
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	if (request.action) {

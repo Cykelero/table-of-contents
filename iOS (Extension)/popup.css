@@ -6,6 +6,7 @@
 	--selection-row-border-radius: 9px;
 	
 	--selection-row-top: calc(var(--selection-row-center) - var(--selection-row-height) / 2);
+	--selection-row-bottom: calc(100dvh - var(--selection-row-top) - var(--selection-row-height))
 }
 
 body {
@@ -19,10 +20,13 @@ body {
 .scrollingWrapper {
 	height: 100dvh;
 	padding-top: var(--selection-row-top);
-	padding-bottom: calc(100dvh - var(--selection-row-top) - var(--selection-row-height));
+	padding-bottom: var(--selection-row-bottom);
 	
 	overflow-y: scroll;
 	box-sizing: border-box;
+	scroll-snap-type: y mandatory;
+	scroll-padding-top: var(--selection-row-top);
+	scroll-padding-bottom: var(--selection-row-bottom);
 }
 
 .scrollingWrapper > ul {
@@ -38,6 +42,7 @@ body {
 	
 	list-style: none;
 	overflow: hidden;
+	scroll-snap-align: start;
 }
 
 .selectionRow {

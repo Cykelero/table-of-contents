@@ -46,8 +46,6 @@ export default class HeadingListRenderer {
 		
 		this.scrollingWrapperElement.className = "scrollingWrapper";
 		
-		this.scrollingWrapperElement.addEventListener("scroll", this.userDidScroll.bind(this));
-		
 		// Create selection row and effect
 		this.selectionRowElement = document.createElement("div");
 		this.parentElement.appendChild(this.selectionRowElement);
@@ -86,10 +84,32 @@ export default class HeadingListRenderer {
 			const levelIndentation = "    ".repeat(headingInfo.mappedLevel - 1);
 			const formattedHeadingText = levelIndentation + headingInfo.innerText;
 			liElement.innerText = formattedHeadingText;
+			
+			// Listen to taps
+			liElement.onclick = () => {
+				this.callbacks.userDidSelectHeading(headingIndex);
+				this.selectHeadingAtIndex(headingIndex);
+			}
 		}
 		
 		// Select current heading
-		//this.selectHeadingAtIndex(headingData.currentHeadingIndex);
+		this.selectHeadingAtIndex(headingData.currentHeadingIndex);
+		
+		// Finalize
+		setTimeout(() => {
+			// Start listening to scroll events shortly after the initial scroll
+			this.scrollingWrapperElement.addEventListener("scroll", this.userDidScroll.bind(this));
+			
+			// And make scrolling smooth
+			this.scrollingWrapperElement.style.scrollBehavior = "smooth";
+		}, 250);
+				   
+	}
+	
+	selectHeadingAtIndex(headingIndex) {
+		const headingHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--selection-row-height"));
+		
+		this.scrollingWrapperElement.scrollTo(0, headingIndex * headingHeight);
 	}
 	
 	userDidScroll() {

@@ -39,11 +39,12 @@
 		A74CBC69296EF72B0020FB0C /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1B296EF72B0020FB0C /* content.js */; };
 		A74CBC6A296EF72B0020FB0C /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1C296EF72B0020FB0C /* popup.html */; };
 		A74CBC6B296EF72B0020FB0C /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1C296EF72B0020FB0C /* popup.html */; };
-		A74CBC6C296EF72B0020FB0C /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1D296EF72B0020FB0C /* popup.css */; };
-		A74CBC6D296EF72B0020FB0C /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1D296EF72B0020FB0C /* popup.css */; };
 		A74CBC6E296EF72B0020FB0C /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1E296EF72B0020FB0C /* popup.js */; };
 		A74CBC6F296EF72B0020FB0C /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1E296EF72B0020FB0C /* popup.js */; };
-		A78A220329F2CAE40013A511 /* HeadingListRenderer.js in Resources */ = {isa = PBXBuildFile; fileRef = A78A220229F2CAE40013A511 /* HeadingListRenderer.js */; };
+		A75236CC29F315EC00DB19B8 /* HeadingListRenderer.js in Resources */ = {isa = PBXBuildFile; fileRef = A78A220229F2CAE40013A511 /* HeadingListRenderer.js */; };
+		A75236CD29F315EC00DB19B8 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1D296EF72B0020FB0C /* popup.css */; };
+		A75236CE29F315F200DB19B8 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A75236C629F2E36900DB19B8 /* popup.css */; };
+		A75236CF29F315F200DB19B8 /* HeadingListRenderer.js in Resources */ = {isa = PBXBuildFile; fileRef = A75236C429F2E00600DB19B8 /* HeadingListRenderer.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,8 @@
 		A74CBC4B296EF72B0020FB0C /* Table of contents Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Table of contents Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74CBC50296EF72B0020FB0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74CBC51296EF72B0020FB0C /* Table of contents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Table of contents.entitlements"; sourceTree = "<group>"; };
+		A75236C429F2E00600DB19B8 /* HeadingListRenderer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = HeadingListRenderer.js; sourceTree = "<group>"; };
+		A75236C629F2E36900DB19B8 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		A78A220229F2CAE40013A511 /* HeadingListRenderer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = HeadingListRenderer.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				A74CBC46296EF72B0020FB0C /* Info.plist */,
+				A75236C629F2E36900DB19B8 /* popup.css */,
+				A75236C429F2E00600DB19B8 /* HeadingListRenderer.js */,
 			);
 			path = "iOS (Extension)";
 			sourceTree = "<group>";
@@ -413,10 +418,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74CBC6C296EF72B0020FB0C /* popup.css in Resources */,
 				A74CBC6A296EF72B0020FB0C /* popup.html in Resources */,
+				A75236CE29F315F200DB19B8 /* popup.css in Resources */,
 				A74CBC62296EF72B0020FB0C /* images in Resources */,
 				A74CBC64296EF72B0020FB0C /* manifest.json in Resources */,
+				A75236CF29F315F200DB19B8 /* HeadingListRenderer.js in Resources */,
 				A74CBC60296EF72B0020FB0C /* _locales in Resources */,
 				A74CBC68296EF72B0020FB0C /* content.js in Resources */,
 				A74CBC6E296EF72B0020FB0C /* popup.js in Resources */,
@@ -427,11 +433,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74CBC6D296EF72B0020FB0C /* popup.css in Resources */,
+				A75236CD29F315EC00DB19B8 /* popup.css in Resources */,
 				A74CBC6B296EF72B0020FB0C /* popup.html in Resources */,
+				A75236CC29F315EC00DB19B8 /* HeadingListRenderer.js in Resources */,
 				A74CBC63296EF72B0020FB0C /* images in Resources */,
 				A74CBC65296EF72B0020FB0C /* manifest.json in Resources */,
-				A78A220329F2CAE40013A511 /* HeadingListRenderer.js in Resources */,
 				A74CBC61296EF72B0020FB0C /* _locales in Resources */,
 				A74CBC69296EF72B0020FB0C /* content.js in Resources */,
 				A74CBC6F296EF72B0020FB0C /* popup.js in Resources */,

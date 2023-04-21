@@ -70,7 +70,7 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	}
 });
 
-document.body.innerHTML = "";
+document.body.removeChild(document.querySelector(".messageContainer"));
 
 (async function() {
 	await injectContentScript();

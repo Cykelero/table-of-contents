@@ -2,7 +2,7 @@
     color-scheme: light dark;
 	
 	--selection-row-center: 44dvh;
-	--selection-row-height: 28px;
+	--selection-row-height: 32px;
 	--selection-row-border-radius: 9px;
 	
 	--selection-row-top: calc(var(--selection-row-center) - var(--selection-row-height) / 2);

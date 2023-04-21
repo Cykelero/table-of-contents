@@ -104,15 +104,53 @@ function getHeadings() {
 function getHeadingData() {
 	const headings = getHeadings();
 	
+	// Get heading data
 	const headingInfos = headings.map(heading => {
 		const isEditableWikipediaHeading = heading.querySelector(".mw-headline") && heading.querySelector(".mw-editsection");
 		
 		return {
 			level: Number(heading.tagName.slice(1)),
+			mappedLevel: null, // populated below
 			innerText: isEditableWikipediaHeading ? heading.querySelector(".mw-headline").innerText.trim() : heading.innerText.trim()
 		};
 	});
 	
+	// // Remap levels to avoid level gaps
+	// // E.g. if a h1 directly contains a h4, then the h4 becomes a h2
+	let levelMappings = [];
+	
+	for (let headingIndex = 0; headingIndex < headingInfos.length; headingIndex++) {
+		const headingInfo = headingInfos[headingIndex];
+		
+		// Pop mappings that are to deep
+		let activeLevelMapping = levelMappings[levelMappings.length - 1];
+		while (activeLevelMapping && activeLevelMapping.actual > headingInfo.level) {
+			levelMappings.pop();
+			activeLevelMapping = levelMappings[levelMappings.length - 1]
+		}
+		
+		// Add mapping if necessary
+		if (!activeLevelMapping) {
+			// No mapping? Map to top-level
+			levelMappings.push({
+				actual: headingInfo.level,
+				mapped: 1
+			});
+		} else if (activeLevelMapping.actual < headingInfo.level) {
+			// Parent mapping? Nest
+			levelMappings.push({
+				actual: headingInfo.level,
+				mapped: activeLevelMapping.mapped + 1
+			});
+		}
+		
+		const currentLevelMapping = levelMappings[levelMappings.length - 1];
+		
+		// Write back in headingInfos
+		headingInfo.mappedLevel = currentLevelMapping.mapped;
+	}
+	
+	// Find current heading
 	const currentHeading = headings.reduce((result, current, currentIndex) => {
 		const resultY =
 			result
@@ -134,6 +172,7 @@ function getHeadingData() {
 	
 	const currentHeadingIndex = headings.indexOf(currentHeading);
 	
+	// Return
 	return {
 		headingInfos,
 		currentHeadingIndex

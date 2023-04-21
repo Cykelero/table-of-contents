@@ -43,6 +43,7 @@
 		A74CBC6D296EF72B0020FB0C /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1D296EF72B0020FB0C /* popup.css */; };
 		A74CBC6E296EF72B0020FB0C /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1E296EF72B0020FB0C /* popup.js */; };
 		A74CBC6F296EF72B0020FB0C /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC1E296EF72B0020FB0C /* popup.js */; };
+		A78A220329F2CAE40013A511 /* HeadingListRenderer.js in Resources */ = {isa = PBXBuildFile; fileRef = A78A220229F2CAE40013A511 /* HeadingListRenderer.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		A74CBC4B296EF72B0020FB0C /* Table of contents Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Table of contents Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74CBC50296EF72B0020FB0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74CBC51296EF72B0020FB0C /* Table of contents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Table of contents.entitlements"; sourceTree = "<group>"; };
+		A78A220229F2CAE40013A511 /* HeadingListRenderer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = HeadingListRenderer.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				A74CBC1C296EF72B0020FB0C /* popup.html */,
 				A74CBC1D296EF72B0020FB0C /* popup.css */,
 				A74CBC1E296EF72B0020FB0C /* popup.js */,
+				A78A220229F2CAE40013A511 /* HeadingListRenderer.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				A74CBC6B296EF72B0020FB0C /* popup.html in Resources */,
 				A74CBC63296EF72B0020FB0C /* images in Resources */,
 				A74CBC65296EF72B0020FB0C /* manifest.json in Resources */,
+				A78A220329F2CAE40013A511 /* HeadingListRenderer.js in Resources */,
 				A74CBC61296EF72B0020FB0C /* _locales in Resources */,
 				A74CBC69296EF72B0020FB0C /* content.js in Resources */,
 				A74CBC6F296EF72B0020FB0C /* popup.js in Resources */,

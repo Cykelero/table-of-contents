@@ -19,6 +19,7 @@ body {
 
 .scrollingWrapper {
 	height: 100dvh;
+	min-height: 200px;
 	padding-top: var(--selection-row-top);
 	padding-bottom: var(--selection-row-bottom);
 	

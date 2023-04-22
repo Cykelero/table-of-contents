@@ -2,8 +2,8 @@
     color-scheme: light dark;
 	
 	--selection-row-center: 44dvh;
-	--selection-row-height: 32px;
-	--selection-row-border-radius: 9px;
+	--selection-row-height: 43px;
+	--selection-row-border-radius: 14px;
 	
 	--selection-row-top: calc(var(--selection-row-center) - var(--selection-row-height) / 2);
 	--selection-row-bottom: calc(100dvh - var(--selection-row-top) - var(--selection-row-height))
@@ -13,8 +13,9 @@ body {
 	margin: 0;
 	padding: 0px;
 
+	font-size: 17px;
     font-family: system-ui;
-	color: #2d2d2d;
+	color: black;
 }
 
 .scrollingWrapper {
@@ -31,7 +32,7 @@ body {
 }
 
 .scrollingWrapper > ul {
-	margin: 0 22px;
+	margin: 0 26px;
 	padding: 0;
 }
 
@@ -57,7 +58,7 @@ body {
 	background-color: rgb(0, 122, 255);
 	background-color: AccentColor;
 	border-radius: var(--selection-row-border-radius);
-	filter: brightness(0.8) invert();
+	filter: invert();
 	
 	pointer-events: none;
 }
@@ -71,7 +72,7 @@ body {
 	
 	background-color: rgba(0, 0, 0, 0.01);
 	border-radius: var(--selection-row-border-radius);
-	-webkit-backdrop-filter: invert() brightness(1.2);
+	-webkit-backdrop-filter: invert();
 	
 	pointer-events: none;
 }

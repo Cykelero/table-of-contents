@@ -65,6 +65,24 @@
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
+    },
+    {
+      "filename" : "icon-48.png",
+      "idiom" : "universal",
+      "scale" : "1x",
+      "size" : "48x48"
+    },
+    {
+      "filename" : "icon-64.png",
+      "idiom" : "universal",
+      "scale" : "1x",
+      "size" : "64x64"
+    },
+    {
+      "filename" : "icon-96.png",
+      "idiom" : "universal",
+      "scale" : "1x",
+      "size" : "96x96"
     }
   ],
   "info" : {

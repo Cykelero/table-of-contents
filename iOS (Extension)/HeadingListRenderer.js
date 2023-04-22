@@ -68,7 +68,7 @@ export default class HeadingListRenderer {
 			this.rootElements.push(messageContainerElement);
 			
 			messageContainerElement.className = "messageContainer";
-			messageContainerElement.innerText = "No heading in document";
+			messageContainerElement.innerText = "No Heading In Document";
 			
 			return;
 		}

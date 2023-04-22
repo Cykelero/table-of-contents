@@ -81,8 +81,12 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 260px;
-	height: 40px;
+	height: 94dvh;
+	
+	font-size: 28px;
+	letter-spacing: -0.5px;
+	
+	opacity: 0.4;
 }
 
 @media (prefers-color-scheme: dark) {

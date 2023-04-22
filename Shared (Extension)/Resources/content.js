@@ -108,10 +108,20 @@ function getHeadingData() {
 	const headingInfos = headings.map(heading => {
 		const isEditableWikipediaHeading = heading.querySelector(".mw-headline") && heading.querySelector(".mw-editsection");
 		
+		const innerText =
+			isEditableWikipediaHeading
+			? heading.querySelector(".mw-headline").innerText
+			: heading.innerText;
+		
+		const formattedInnerText =
+			innerText
+			.split("\n")[0]
+			.trim();
+		
 		return {
 			level: Number(heading.tagName.slice(1)),
 			mappedLevel: null, // populated below
-			innerText: isEditableWikipediaHeading ? heading.querySelector(".mw-headline").innerText.trim() : heading.innerText.trim()
+			innerText: formattedInnerText
 		};
 	});
 	

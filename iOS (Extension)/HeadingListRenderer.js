@@ -108,6 +108,25 @@ export default class HeadingListRenderer {
 		this.scrollingWrapperElement.appendChild(this.ulElement);
 		
 		// Add heading <li> elements
+		const headingLevels = headingInfos.map(headingInfo => headingInfo.mappedLevel);
+		const highestLevel = Math.max.apply(Math, headingLevels);
+		
+		let lowestLevelWithMultipleHeadings = null;
+		for (let level = 1; level <= highestLevel; level++) {
+			if (headingLevels.filter(l => l === level).length > 1) {
+				lowestLevelWithMultipleHeadings = level;
+				break;
+			}
+		}
+		const emphasizeLevelIfBelowLevel =
+			lowestLevelWithMultipleHeadings === null
+			? -1 // emphasize nothing
+			: (
+			   lowestLevelWithMultipleHeadings === highestLevel
+			   ? lowestLevelWithMultipleHeadings // don't emphasize first multi-heading level (it has no child headings)
+			   : lowestLevelWithMultipleHeadings + 1 // do emphasize first multi-heading level
+			);
+		
 		for (let [headingIndex, headingInfo] of Object.entries(headingInfos)) {
 			const liElement = document.createElement("li");
 			this.ulElement.appendChild(liElement);
@@ -118,6 +137,11 @@ export default class HeadingListRenderer {
 			const levelIndentation = "    ".repeat(headingInfo.mappedLevel - 1);
 			const formattedHeadingText = levelIndentation + headingInfo.innerText;
 			liElement.innerText = formattedHeadingText;
+			
+			// Emphasize, based on level
+			if (headingInfo.mappedLevel < emphasizeLevelIfBelowLevel) {
+				liElement.classList.add("emphasized-level");
+			}
 			
 			// Listen to taps
 			liElement.onclick = () => {

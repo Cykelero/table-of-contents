@@ -48,6 +48,10 @@ body {
 	scroll-snap-align: start;
 }
 
+.emphasized-level {
+	font-weight: 600;
+}
+
 .selectionRow {
 	position: fixed;
 	top: var(--selection-row-top);

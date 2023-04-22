@@ -3,18 +3,50 @@ export default class HeadingListRenderer {
 		this.parentElement = parentElement;
 		this.callbacks = callbacks;
 		
+		this.headingData = null;
+		
 		this.rootElements = [];
 		this.scrollingWrapperElement = null;
 		this.ulElement = null;
 		this.selectionRowElement = null;
 		this.selectionRowEffectElement = null;
+		
+		this.boundOnKeyDown = this.onKeyDown.bind(this);
 	}
 	
 	get selectionRowRect() {
 		return this.selectionRowElement.getBoundingClientRect();
 	}
 	
+	get selectedHeadingIndex() {
+		const targetSelectionY = this.selectionRowRect.top + this.selectionRowRect.height / 2;
+		
+		// Find element closest to selection row
+		let closestLiElement = null;
+		
+		for (let candidateLiElement of this.ulElement.childNodes) {
+			if (!closestLiElement) {
+				closestLiElement = candidateLiElement;
+				continue;
+			}
+			
+			const candidateBoundingRect = candidateLiElement.getBoundingClientRect();
+			const closestBoundingRect = closestLiElement.getBoundingClientRect();
+			
+			const candidateDistance = Math.abs(candidateBoundingRect.top + candidateBoundingRect.height / 2 - targetSelectionY);
+			const closestDistance = Math.abs(closestBoundingRect.top + closestBoundingRect.height / 2 - targetSelectionY);
+			
+			if (candidateDistance < closestDistance) {
+				closestLiElement = candidateLiElement;
+			}
+		}
+		
+		return Number(closestLiElement.dataset.headingIndex);
+	}
+	
 	render(headingData) {
+		this.headingData = headingData;
+		
 		const headingInfos = headingData.headingInfos;
 		
 		// Reset
@@ -26,6 +58,8 @@ export default class HeadingListRenderer {
 		this.scrollingWrapperElement = null;
 		this.ulElement = null;
 		this.selectionRowElement = null;
+		
+		removeEventListener("keydown", this.boundOnKeyDown);
 		
 		// Too few headings?
 		if (headingInfos.length <= 1) {
@@ -92,6 +126,10 @@ export default class HeadingListRenderer {
 			}
 		}
 		
+		// Listen to keyboard events
+		window.focus(); // doesn't work (as of iOS 16.4)
+		addEventListener("keydown", this.boundOnKeyDown);
+		
 		// Select current heading
 		this.selectHeadingAtIndex(headingData.currentHeadingIndex);
 		
@@ -103,7 +141,6 @@ export default class HeadingListRenderer {
 			// And make scrolling smooth
 			this.scrollingWrapperElement.style.scrollBehavior = "smooth";
 		}, 250);
-				   
 	}
 	
 	selectHeadingAtIndex(headingIndex) {
@@ -112,32 +149,45 @@ export default class HeadingListRenderer {
 		this.scrollingWrapperElement.scrollTo(0, headingIndex * headingHeight);
 	}
 	
+	keyboardSelectHeadingAtIndex(headingIndex) {
+		this.scrollingWrapperElement.style.scrollBehavior = "";
+		this.selectHeadingAtIndex(headingIndex);
+		this.scrollingWrapperElement.style.scrollBehavior = "smooth";
+	}
+	
 	userDidScroll() {
-		const targetSelectionY = this.selectionRowRect.top + this.selectionRowRect.height / 2;
+		// Reveal heading in page
+		this.callbacks.userDidSelectHeading(this.selectedHeadingIndex);
+	}
+	
+	onKeyDown() {
+		const UP_ARROW = 38;
+		const DOWN_ARROW = 40;
 		
-		// Find element closest to selection row
-		let closestLiElement = null;
+		if (!this.ulElement) return;
 		
-		for (let candidateLiElement of this.ulElement.childNodes) {
-			if (!closestLiElement) {
-				closestLiElement = candidateLiElement;
-				continue;
+		if (event.keyCode === UP_ARROW) {
+			if (event.altKey) {
+				// ⌥↑: move to top
+				this.keyboardSelectHeadingAtIndex(0);
+			} else {
+				// ↑: move up
+				if (this.selectedHeadingIndex > 0) {
+					this.keyboardSelectHeadingAtIndex(this.selectedHeadingIndex - 1);
+				}
 			}
+		} else if (event.keyCode === DOWN_ARROW) {
+			const maxIndex = this.headingData.headingInfos.length - 1;
 			
-			const candidateBoundingRect = candidateLiElement.getBoundingClientRect();
-			const closestBoundingRect = closestLiElement.getBoundingClientRect();
-			
-			const candidateDistance = Math.abs(candidateBoundingRect.top + candidateBoundingRect.height / 2 - targetSelectionY);
-			const closestDistance = Math.abs(closestBoundingRect.top + closestBoundingRect.height / 2 - targetSelectionY);
-			
-			if (candidateDistance < closestDistance) {
-				closestLiElement = candidateLiElement;
+			if (event.altKey) {
+				// ⌥↓: move to bottom
+				this.keyboardSelectHeadingAtIndex(maxIndex);
+			} else {
+				// ↓: move down
+				if (this.selectedHeadingIndex < maxIndex) {
+					this.keyboardSelectHeadingAtIndex(this.selectedHeadingIndex + 1);
+				}
 			}
 		}
-		
-		// Reveal heading in page
-		const selectedHeadingIndex = closestLiElement.dataset.headingIndex;
-		
-		this.callbacks.userDidSelectHeading(selectedHeadingIndex);
 	}
 };

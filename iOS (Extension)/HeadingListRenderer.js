@@ -145,7 +145,6 @@ export default class HeadingListRenderer {
 			
 			// Listen to taps
 			liElement.onclick = () => {
-				this.callbacks.userDidSelectHeading(headingIndex);
 				this.selectHeadingAtIndex(headingIndex);
 			}
 		}

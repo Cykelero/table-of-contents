@@ -19,6 +19,7 @@ select {
 	color: inherit;
 	
 	outline: none;
+	overflow-y: auto;
 }
 
 option {

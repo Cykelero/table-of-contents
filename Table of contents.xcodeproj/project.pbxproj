@@ -13,8 +13,8 @@
 		A74CBC2F296EF72B0020FB0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC2D296EF72B0020FB0C /* Main.storyboard */; };
 		A74CBC38296EF72B0020FB0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74CBC37296EF72B0020FB0C /* AppDelegate.swift */; };
 		A74CBC3B296EF72B0020FB0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC39296EF72B0020FB0C /* Main.storyboard */; };
-		A74CBC42296EF72B0020FB0C /* Table of contents Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A74CBC41296EF72B0020FB0C /* Table of contents Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A74CBC4C296EF72B0020FB0C /* Table of contents Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A74CBC4B296EF72B0020FB0C /* Table of contents Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A74CBC42296EF72B0020FB0C /* Table of contents Extension (Debug).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A74CBC41296EF72B0020FB0C /* Table of contents Extension (Debug).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A74CBC4C296EF72B0020FB0C /* Table of contents Extension (Debug).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A74CBC4B296EF72B0020FB0C /* Table of contents Extension (Debug).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A74CBC52296EF72B0020FB0C /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC0D296EF72A0020FB0C /* Main.html */; };
 		A74CBC53296EF72B0020FB0C /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC0D296EF72A0020FB0C /* Main.html */; };
 		A74CBC54296EF72B0020FB0C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74CBC0F296EF72A0020FB0C /* Icon.png */; };
@@ -71,7 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A74CBC42296EF72B0020FB0C /* Table of contents Extension.appex in Embed Foundation Extensions */,
+				A74CBC42296EF72B0020FB0C /* Table of contents Extension (Debug).appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,7 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A74CBC4C296EF72B0020FB0C /* Table of contents Extension.appex in Embed Foundation Extensions */,
+				A74CBC4C296EF72B0020FB0C /* Table of contents Extension (Debug).appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,19 +104,19 @@
 		A74CBC1C296EF72B0020FB0C /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		A74CBC1D296EF72B0020FB0C /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		A74CBC1E296EF72B0020FB0C /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
-		A74CBC23296EF72B0020FB0C /* Table of contents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Table of contents.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A74CBC23296EF72B0020FB0C /* Table of contents (Debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Table of contents (Debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74CBC26296EF72B0020FB0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74CBC28296EF72B0020FB0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A74CBC2B296EF72B0020FB0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A74CBC2E296EF72B0020FB0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A74CBC30296EF72B0020FB0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A74CBC35296EF72B0020FB0C /* Table of contents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Table of contents.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A74CBC35296EF72B0020FB0C /* Table of contents (Debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Table of contents (Debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74CBC37296EF72B0020FB0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74CBC3A296EF72B0020FB0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A74CBC3C296EF72B0020FB0C /* Table of contents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Table of contents.entitlements"; sourceTree = "<group>"; };
-		A74CBC41296EF72B0020FB0C /* Table of contents Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Table of contents Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A74CBC41296EF72B0020FB0C /* Table of contents Extension (Debug).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Table of contents Extension (Debug).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74CBC46296EF72B0020FB0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A74CBC4B296EF72B0020FB0C /* Table of contents Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Table of contents Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A74CBC4B296EF72B0020FB0C /* Table of contents Extension (Debug).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Table of contents Extension (Debug).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74CBC50296EF72B0020FB0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74CBC51296EF72B0020FB0C /* Table of contents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Table of contents.entitlements"; sourceTree = "<group>"; };
 		A75236C429F2E00600DB19B8 /* HeadingListRenderer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = HeadingListRenderer.js; sourceTree = "<group>"; };
@@ -217,10 +217,10 @@
 		A74CBC24296EF72B0020FB0C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A74CBC23296EF72B0020FB0C /* Table of contents.app */,
-				A74CBC35296EF72B0020FB0C /* Table of contents.app */,
-				A74CBC41296EF72B0020FB0C /* Table of contents Extension.appex */,
-				A74CBC4B296EF72B0020FB0C /* Table of contents Extension.appex */,
+				A74CBC23296EF72B0020FB0C /* Table of contents (Debug).app */,
+				A74CBC35296EF72B0020FB0C /* Table of contents (Debug).app */,
+				A74CBC41296EF72B0020FB0C /* Table of contents Extension (Debug).appex */,
+				A74CBC4B296EF72B0020FB0C /* Table of contents Extension (Debug).appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			);
 			name = "Table of contents (iOS)";
 			productName = "Table of contents (iOS)";
-			productReference = A74CBC23296EF72B0020FB0C /* Table of contents.app */;
+			productReference = A74CBC23296EF72B0020FB0C /* Table of contents (Debug).app */;
 			productType = "com.apple.product-type.application";
 		};
 		A74CBC34296EF72B0020FB0C /* Table of contents (macOS) */ = {
@@ -304,7 +304,7 @@
 			);
 			name = "Table of contents (macOS)";
 			productName = "Table of contents (macOS)";
-			productReference = A74CBC35296EF72B0020FB0C /* Table of contents.app */;
+			productReference = A74CBC35296EF72B0020FB0C /* Table of contents (Debug).app */;
 			productType = "com.apple.product-type.application";
 		};
 		A74CBC40296EF72B0020FB0C /* Table of contents Extension (iOS) */ = {
@@ -321,7 +321,7 @@
 			);
 			name = "Table of contents Extension (iOS)";
 			productName = "Table of contents Extension (iOS)";
-			productReference = A74CBC41296EF72B0020FB0C /* Table of contents Extension.appex */;
+			productReference = A74CBC41296EF72B0020FB0C /* Table of contents Extension (Debug).appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		A74CBC4A296EF72B0020FB0C /* Table of contents Extension (macOS) */ = {
@@ -338,7 +338,7 @@
 			);
 			name = "Table of contents Extension (macOS)";
 			productName = "Table of contents Extension (macOS)";
-			productReference = A74CBC4B296EF72B0020FB0C /* Table of contents Extension.appex */;
+			productReference = A74CBC4B296EF72B0020FB0C /* Table of contents Extension (Debug).appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -650,7 +650,7 @@
 				DEVELOPMENT_TEAM = 6XWJB5YJ6J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents Extension (Debug)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -664,7 +664,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug.Extension";
-				PRODUCT_NAME = "Table of contents Extension";
+				PRODUCT_NAME = "Table of contents Extension (Debug)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -716,7 +716,7 @@
 				DEVELOPMENT_TEAM = 6XWJB5YJ6J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents";
+				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents (Debug)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -735,7 +735,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug";
-				PRODUCT_NAME = "Table of contents";
+				PRODUCT_NAME = "Table of contents (Debug)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -792,7 +792,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents Extension (Debug)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -806,7 +806,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug.Extension";
-				PRODUCT_NAME = "Table of contents Extension";
+				PRODUCT_NAME = "Table of contents Extension (Debug)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -858,7 +858,7 @@
 				DEVELOPMENT_TEAM = 6XWJB5YJ6J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents";
+				INFOPLIST_KEY_CFBundleDisplayName = "Table of contents (Debug)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -875,7 +875,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "garden.lemon.Table-of-contents-debug";
-				PRODUCT_NAME = "Table of contents";
+				PRODUCT_NAME = "Table of contents (Debug)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -1,4 +1,5 @@
 const HEADING_TOP_OFFSET = 70; // don't completely align headings to the top of the viewport, in case there's a floating header that'd obscure them
+const SUFFIX_CHOP_MINIMUM_MATCH_RATIO = 0.8;
 
 // Functions
 // // Communication
@@ -124,6 +125,63 @@ function getHeadingData() {
 			innerText: formattedInnerText
 		};
 	});
+	
+	// Process heading data as a whole: remove common suffix if one is sufficiently common
+	// The algorithm only works for SUFFIX_CHOP_MINIMUM_MATCH_RATIO >= 50%, since for each step, it only considers the most common character.
+	let currentConfirmedSuffix = "";
+	
+	// // 1. Find shared suffix
+	do {
+		// Find next size suffix
+		const nextSuffixLength = currentConfirmedSuffix.length + 1;
+		
+		// // Extract the additional character from each heading
+		const nextCharacterForEachHeading = headingInfos.map(headingInfo => {
+			const headingText = headingInfo.innerText;
+			
+			if (headingText.length < nextSuffixLength) {
+				return null;
+			}
+			
+			const startIndex = headingText.length - nextSuffixLength;
+			return headingText.slice(startIndex, startIndex + 1);
+		});
+		
+		// // Find the most common character
+		const occurrenceCountByCharacter = {};
+		
+		for (let character of nextCharacterForEachHeading) {
+			if (character === null) {
+				continue;
+			}
+			
+			if (!occurrenceCountByCharacter[character]) {
+				occurrenceCountByCharacter[character] = 1;
+			} else {
+				occurrenceCountByCharacter[character]++;
+			}
+		}
+		
+		const highestOccurrenceCount = Math.max.apply(Math, Object.values(occurrenceCountByCharacter));
+		const mostCommonCharacter = Object.entries(occurrenceCountByCharacter).find(pair => pair[1] === highestOccurrenceCount)[0];
+		
+		// // Is it shared enough?
+		if (highestOccurrenceCount / headingInfos.length < SUFFIX_CHOP_MINIMUM_MATCH_RATIO) {
+			break;
+		}
+		
+		// // Yes: accumulate
+		currentConfirmedSuffix = mostCommonCharacter + currentConfirmedSuffix;
+	} while (true)
+	
+	// // 2. Remove suffix if any
+	if (currentConfirmedSuffix.length > 2 || !/^[a-zA-Z]+$/.exec(currentConfirmedSuffix)) {
+		for (let headingInfo of headingInfos) {
+			if (headingInfo.innerText.slice(-currentConfirmedSuffix.length) === currentConfirmedSuffix) {
+				headingInfo.innerText = headingInfo.innerText.slice(0, -currentConfirmedSuffix.length);
+			}
+		}
+	}
 	
 	// // Remap levels to avoid level gaps
 	// // E.g. if a h1 directly contains a h4, then the h4 becomes a h2

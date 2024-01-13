@@ -12,7 +12,11 @@ const knownMessages = {
 		
 		const headingToReveal = getHeadings()[request.headingIndex];
 		const headingToRevealRect = headingToReveal.getBoundingClientRect();
-		scrollBy(0, headingToRevealRect.top - HEADING_TOP_OFFSET);
+		const amountToScroll = Math.round(headingToRevealRect.top - HEADING_TOP_OFFSET);
+		
+		if (amountToScroll !== 0) {
+			scrollBy(0, amountToScroll);
+		}
 	},
 	startStreamingCurrentHeadingIndex(request, sender, sendResponse) {
 		startStreamingCurrentHeadingIndex();

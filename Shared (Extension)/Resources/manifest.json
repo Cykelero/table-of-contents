@@ -26,33 +26,33 @@
         },
 		"theme_icons": [
 			{
-				"light": "images/toolbar-icon-light-16.png",
-				"dark": "images/toolbar-icon-dark-16.png",
+				"light": "images/toolbar-icon-dark-16.png",
+				"dark": "images/toolbar-icon-light-16.png",
 				"size": 16
 			},
 			{
-				"light": "images/toolbar-icon-light-19.png",
-				"dark": "images/toolbar-icon-dark-19.png",
+				"light": "images/toolbar-icon-dark-19.png",
+				"dark": "images/toolbar-icon-light-19.png",
 				"size": 19
 			},
 			{
-				"light": "images/toolbar-icon-light-32.png",
-				"dark": "images/toolbar-icon-dark-32.png",
+				"light": "images/toolbar-icon-dark-32.png",
+				"dark": "images/toolbar-icon-light-32.png",
 				"size": 32
 			},
 			{
-				"light": "images/toolbar-icon-light-38.png",
-				"dark": "images/toolbar-icon-dark-38.png",
+				"light": "images/toolbar-icon-dark-38.png",
+				"dark": "images/toolbar-icon-light-38.png",
 				"size": 38
 			},
 			{
-				"light": "images/toolbar-icon-light-48.png",
-				"dark": "images/toolbar-icon-dark-48.png",
+				"light": "images/toolbar-icon-dark-48.png",
+				"dark": "images/toolbar-icon-light-48.png",
 				"size": 48
 			},
 			{
-				"light": "images/toolbar-icon-light-72.png",
-				"dark": "images/toolbar-icon-dark-72.png",
+				"light": "images/toolbar-icon-dark-72.png",
+				"dark": "images/toolbar-icon-light-72.png",
 				"size": 72
 			}
 		]

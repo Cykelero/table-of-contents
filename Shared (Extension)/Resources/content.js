@@ -132,6 +132,8 @@ function getHeadingData() {
 	
 	// // 1. Find shared suffix
 	do {
+		if (headingInfos.length <= 1) { break } // only one heading: can't detect suffix
+		
 		// Find next size suffix
 		const nextSuffixLength = currentConfirmedSuffix.length + 1;
 		

@@ -1,5 +1,5 @@
 const HEADING_TOP_OFFSET = 70; // don't completely align headings to the top of the viewport, in case there's a floating header that'd obscure them
-const SUFFIX_CHOP_MINIMUM_MATCH_RATIO = 0.8;
+const SUFFIX_CHOP_MINIMUM_MATCH_RATIO = 0.7;
 
 // Functions
 // // Communication

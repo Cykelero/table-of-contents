@@ -71,7 +71,7 @@
 	"commands": {
 		"_execute_action": {
 			"suggested_key": {
-				"default": "Ctrl+G",
+				"default": "Ctrl+Q",
 				"mac": "MacCtrl+G"
 			}
 		}

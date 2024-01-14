@@ -122,6 +122,7 @@
 		A75236C429F2E00600DB19B8 /* HeadingListRenderer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = HeadingListRenderer.js; sourceTree = "<group>"; };
 		A75236C629F2E36900DB19B8 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		A78A220229F2CAE40013A511 /* HeadingListRenderer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = HeadingListRenderer.js; sourceTree = "<group>"; };
+		A7F7E2B12B53DE15007C6BFF /* build-for-firefox.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-for-firefox.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +160,7 @@
 		A74CBC06296EF72A0020FB0C = {
 			isa = PBXGroup;
 			children = (
+				A7F7E2B12B53DE15007C6BFF /* build-for-firefox.sh */,
 				A74CBC0B296EF72A0020FB0C /* Shared (App) */,
 				A74CBC14296EF72B0020FB0C /* Shared (Extension) */,
 				A74CBC25296EF72B0020FB0C /* iOS (App) */,

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BASE_SHORTCUT_DESCRIPTION="⌃G"
-FIREFOX_SHORTCUT_DESCRIPTION="⌃G (macOS) or Control+G (Linux, Windows)"
+FIREFOX_SHORTCUT_DESCRIPTION="⌃G (macOS) or Control+Q (Linux, Windows)"
 
 sed -i "" "s/$BASE_SHORTCUT_DESCRIPTION/$FIREFOX_SHORTCUT_DESCRIPTION/g" "Shared (Extension)/Resources/_locales/en/messages.json"
 
